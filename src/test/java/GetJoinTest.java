@@ -4,6 +4,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.is;
 
 /**
  * Created by mtumilowicz on 2018-08-27.
@@ -16,7 +17,7 @@ public class GetJoinTest {
         
         System.out.println("before get");
         
-        System.out.println(future.get());
+        assertThat(future.get(), is("ended!"));
         
         System.out.println("after get");
     }
@@ -26,7 +27,7 @@ public class GetJoinTest {
         CompletableFuture<String> future = CompletableFuture.supplyAsync(SlowProcess::call);
         System.out.println("before get");
         
-        System.out.println(future.join());
+        assertThat(future.join(), is("ended!"));
         
         System.out.println("after get");
     }
