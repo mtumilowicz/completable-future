@@ -1,9 +1,9 @@
 /**
  * Created by mtumilowicz on 2018-08-27.
  */
-public class SlowProcess {
-    
-    public static String call() {
+class SlowProcess {
+
+    static String call() {
         System.out.println("SlowProcess started");
         try {
             Thread.sleep(2000);
