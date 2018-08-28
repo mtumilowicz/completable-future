@@ -11,7 +11,8 @@ import static org.hamcrest.CoreMatchers.is;
 public class ExceptionallyTest {
     @Test
     public void exceptionally_noException() {
-        CompletableFuture<String> exceptionallyWrapper = CompletableFuture.supplyAsync(SlowProcess::call).exceptionally(Throwable::getLocalizedMessage);
+        CompletableFuture<String> exceptionallyWrapper = CompletableFuture.supplyAsync(SlowProcess::call)
+                .exceptionally(Throwable::getLocalizedMessage);
     
         assertThat(exceptionallyWrapper.join(), is("ended!"));
     }
