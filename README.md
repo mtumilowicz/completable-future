@@ -65,6 +65,7 @@ completion when it completes exceptionally; otherwise, if this
     ```
     
 * `T join()`
+
     Returns the result value when complete, or throws an
     (unchecked) exception if completed exceptionally.
 
@@ -74,6 +75,33 @@ completion when it completes exceptionally; otherwise, if this
             or a completion computation threw an exception
     ```
     
+* `isCancelled() / isCompletedExceptionally() / isDone()`
+
+* `runAsync(Runnable runnable)`
+
+    Returns a new CompletableFuture that is asynchronously completed
+    by a task running in the `ForkJoinPool#commonPool()` after
+    it runs the given action. 
+
+* `supplyAsync(Supplier<U> supplier)`
+    
+    Returns a new `CompletableFuture` that is asynchronously completed
+    by a task running in the `ForkJoinPool#commonPool()` with
+    the value obtained by calling the given Supplier.
+    
+* `<U> CompletableFuture<U> handle(BiFunction<? super T, Throwable, ? extends U> fn)`
+    
+    Returns a new `CompletionStage` that, when this stage completes either normally or 
+    exceptionally, is executed with this stage's result and exception as arguments 
+    to the supplied function.
+    
+* `CompletableFuture<Void> thenAccept(Consumer<? super T> action)`
+
+    Returns a new CompletionStage that, when this stage completes normally, 
+    is executed with this stage's result as the argument to the supplied action.
+    
+
+
 
 
 # tests
@@ -82,4 +110,6 @@ completion when it completes exceptionally; otherwise, if this
 * `complete` - `CompleteTest`
 * `completeExceptionally` - `CompleteExceptionallyTest`
 * `exceptionally` - `ExceptionallyTest`
-* `get() / join()` - `GetJoinTest`
+* `get / join` - `GetJoinTest`
+* `handle` - `HandleTest`
+* `thenAccept` - `ThenAcceptTest`

@@ -6,7 +6,7 @@ import java.util.concurrent.CompletionException;
 /**
  * Created by mtumilowicz on 2018-08-28.
  */
-public class ThenAccept {
+public class ThenAcceptTest {
     @Test(expected = CompletionException.class)
     public void thenAccept_exception() {
         CompletableFuture.supplyAsync(ExceptionProcess::call)
