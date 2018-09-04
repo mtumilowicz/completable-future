@@ -1,4 +1,8 @@
+
+
 # completable-future
+The main goal of this project is to explore `CompletableFuture API` from
+Java 8.
 
 _Reference_: https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html  
 _Reference_: https://www.nurkiewicz.com/2013/05/java-8-definitive-guide-to.html
@@ -37,12 +41,12 @@ this `CancellationException`.
 
 * `boolean complete(T value)`
 
-    If not already completed, sets the value returned by get() and 
+    If not already completed, sets the value returned by `get()` and 
 related methods to the given value.
 
 * `boolean completeExceptionally(Throwable ex)`
 
-    If not already completed, causes invocations of get()
+    If not already completed, causes invocations of `get()`
     and related methods to throw the given exception.
 
 * `CompletableFuture<T> exceptionally(Function<Throwable, ? extends T> fn)`
@@ -79,7 +83,7 @@ completion when it completes exceptionally; otherwise, if this
 
 * `runAsync(Runnable runnable)`
 
-    Returns a new CompletableFuture that is asynchronously completed
+    Returns a new `CompletableFuture` that is asynchronously completed
     by a task running in the `ForkJoinPool#commonPool()` after
     it runs the given action. 
 
@@ -87,7 +91,7 @@ completion when it completes exceptionally; otherwise, if this
     
     Returns a new `CompletableFuture` that is asynchronously completed
     by a task running in the `ForkJoinPool#commonPool()` with
-    the value obtained by calling the given Supplier.
+    the value obtained by calling the given `Supplier`.
     
 * `<U> CompletableFuture<U> handle(BiFunction<? super T, Throwable, ? extends U> fn)`
     
@@ -97,12 +101,12 @@ completion when it completes exceptionally; otherwise, if this
     
 * `CompletableFuture<Void> thenAccept(Consumer<? super T> action)`
 
-    Returns a new CompletionStage that, when this stage completes normally, 
+    Returns a new `CompletionStage` that, when this stage completes normally, 
     is executed with this stage's result as the argument to the supplied action.
     
 * `<U> CompletableFuture<U> thenApply(Function<? super T,? extends U> fn)`
 
-    Returns a new CompletionStage that, when this stage completes normally, 
+    Returns a new `CompletionStage` that, when this stage completes normally, 
     is executed with this stage's result as the argument to the supplied 
     function.
 
@@ -110,25 +114,25 @@ completion when it completes exceptionally; otherwise, if this
            CompletionStage<? extends U> other,
            BiFunction<? super T,? super U,? extends V> fn)`
            
-    Returns a new CompletionStage that, when this and the other given 
+    Returns a new `CompletionStage` that, when this and the other given 
     stage both complete normally, is executed with the two results as 
     arguments to the supplied function.
 
 * `<U> CompletableFuture<U> thenCompose(Function<? super T, ? extends CompletionStage<U>> fn)`
     
-    Returns a new CompletionStage that, when this stage completes 
+    Returns a new `CompletionStage` that, when this stage completes 
     normally, is executed with this stage as the argument to the 
     supplied function.
     
 * `CompletableFuture<Void> thenRun(Runnable action)`
 
-    Returns a new CompletionStage that, when this stage completes 
+    Returns a new `CompletionStage` that, when this stage completes 
     normally, executes the given action.
     
 * `CompletableFuture<T> whenComplete(
            BiConsumer<? super T, ? super Throwable> action)`
 
-    Returns a new CompletionStage with the same result or exception 
+    Returns a new `CompletionStage` with the same result or exception 
     as this stage, that executes the given action when this stage 
     completes.
 
