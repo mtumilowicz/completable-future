@@ -1,4 +1,4 @@
-
+[![Build Status](https://travis-ci.com/mtumilowicz/completable-future.svg?branch=master)](https://travis-ci.com/mtumilowicz/completable-future)
 
 # completable-future
 The main goal of this project is to explore `CompletableFuture API` from
