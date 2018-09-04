@@ -100,9 +100,37 @@ completion when it completes exceptionally; otherwise, if this
     Returns a new CompletionStage that, when this stage completes normally, 
     is executed with this stage's result as the argument to the supplied action.
     
+* `<U> CompletableFuture<U> thenApply(Function<? super T,? extends U> fn)`
 
+    Returns a new CompletionStage that, when this stage completes normally, 
+    is executed with this stage's result as the argument to the supplied 
+    function.
 
+* `<U,V> CompletableFuture<V> thenCombine(
+           CompletionStage<? extends U> other,
+           BiFunction<? super T,? super U,? extends V> fn)`
+           
+    Returns a new CompletionStage that, when this and the other given 
+    stage both complete normally, is executed with the two results as 
+    arguments to the supplied function.
 
+* `<U> CompletableFuture<U> thenCompose(Function<? super T, ? extends CompletionStage<U>> fn)`
+    
+    Returns a new CompletionStage that, when this stage completes 
+    normally, is executed with this stage as the argument to the 
+    supplied function.
+    
+* `CompletableFuture<Void> thenRun(Runnable action)`
+
+    Returns a new CompletionStage that, when this stage completes 
+    normally, executes the given action.
+    
+* `CompletableFuture<T> whenComplete(
+           BiConsumer<? super T, ? super Throwable> action)`
+
+    Returns a new CompletionStage with the same result or exception 
+    as this stage, that executes the given action when this stage 
+    completes.
 
 # tests
 * `allOf` - `AllOfTest`
@@ -113,3 +141,7 @@ completion when it completes exceptionally; otherwise, if this
 * `get / join` - `GetJoinTest`
 * `handle` - `HandleTest`
 * `thenAccept` - `ThenAcceptTest`
+* `thenApply` - `ThenApplyTest`
+* `thenCombine` - `ThenCombineTest`
+* `thenCompose` - `ThenComposeTest`
+* `whenComplete` - `WhenCompleteTest`
